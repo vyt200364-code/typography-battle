@@ -1,55 +1,161 @@
+*{
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
 body{
 
-background:#080d1a;
-color:white;
+    margin:0;
+    min-height:100vh;
 
-font-family:Arial;
+    background:
+    linear-gradient(
+        135deg,
+        #111827,
+        #312e81
+    );
 
-display:flex;
-justify-content:center;
-align-items:center;
+    color:white;
 
-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
 }
 
 
 #game{
 
-background:#172033;
+    width:900px;
+    max-width:95%;
 
-width:800px;
+    text-align:center;
 
-padding:30px;
+}
 
-border-radius:20px;
 
-text-align:center;
+h1{
+
+    font-size:40px;
+    text-shadow:
+    0 0 15px cyan;
 
 }
 
 
 
-#battle{
+.hidden{
 
-display:flex;
-
-justify-content:space-around;
+    display:none;
 
 }
+
+
+/* START */
+
+#playerNameBox{
+
+    margin-top:40px;
+
+}
+
+
+input{
+
+    padding:15px;
+
+    width:250px;
+
+    border-radius:10px;
+
+    border:none;
+
+    font-size:18px;
+
+}
+
+
+button{
+
+    padding:15px 25px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    background:#facc15;
+
+    font-weight:bold;
+
+}
+
+
+button:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/* CHARACTERS */
+
+
+.characters{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+
+.characters img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:contain;
+
+}
+
+
+
+.hero,
+.boss{
+
+    width:250px;
+
+}
+
+
+/* HP */
 
 
 .bar{
 
-width:250px;
+    width:220px;
 
-height:25px;
+    height:25px;
 
-background:#333;
+    background:#333;
 
-border-radius:20px;
+    border-radius:20px;
 
-overflow:hidden;
+    overflow:hidden;
+
+    margin:auto;
 
 }
 
@@ -57,68 +163,198 @@ overflow:hidden;
 
 #heroHP{
 
-height:100%;
+    height:100%;
 
-background:#22c55e;
+    width:100%;
 
-width:100%;
+    background:#22c55e;
 
-transition:.5s;
+    transition:.5s;
 
 }
+
 
 
 #bossHP{
 
-height:100%;
+    height:100%;
 
-background:#ef4444;
+    width:100%;
 
-width:100%;
+    background:#ef4444;
 
-transition:.5s;
+    transition:.5s;
+
+}
+
+
+
+/* QUESTION */
+
+
+#questionBox{
+
+    margin-top:30px;
+
+    background:
+
+    rgba(255,255,255,.1);
+
+    padding:25px;
+
+    border-radius:20px;
 
 }
 
 
 
-button{
+#question{
 
-width:80%;
-
-padding:15px;
-
-margin:10px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-font-size:18px;
+    font-size:25px;
 
 }
 
 
-button:hover{
 
-transform:scale(1.05);
+#answers{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
 
 }
+
+
+
+.answer{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.answer:hover{
+
+    background:#3b82f6;
+
+}
+
 
 
 .correct{
 
-background:#22c55e;
-
-color:white;
+    background:#16a34a !important;
 
 }
 
 
+
 .wrong{
 
-background:#ef4444;
+    background:#dc2626 !important;
 
-color:white;
+}
+
+
+/* EFFECT */
+
+
+#effect{
+
+    position:fixed;
+
+    font-size:60px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+}
+
+
+
+.hit{
+
+    animation:hitanim .5s;
+
+}
+
+
+
+@keyframes hitanim{
+
+
+0%{
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+
+50%{
+
+    transform:
+    translate(-50%,-50%)
+    scale(1.5)
+    rotate(20deg);
+
+}
+
+
+100%{
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+
+}
+
+
+
+/* RESULT */
+
+
+#result{
+
+    background:
+    rgba(0,0,0,.5);
+
+    padding:40px;
+
+    border-radius:20px;
+
+}
+
+
+
+@media(max-width:700px){
+
+.characters{
+
+    flex-direction:column;
+
+}
+
+
+#answers{
+
+    grid-template-columns:1fr;
+
+}
+
 
 }
