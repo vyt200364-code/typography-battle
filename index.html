@@ -2,7 +2,9 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Typography Battle RPG</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Typography Battle</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -12,49 +14,86 @@
 
 <div id="game">
 
-<h1>⚔️ Typography Battle RPG</h1>
+    <h1>⚔️ TYPOGRAPHY BATTLE ⚔️</h1>
 
-<div id="battle">
-
-<div class="character">
-<h2>🧑‍⚔️ Hero</h2>
-<div class="bar">
-<div id="heroHP"></div>
-</div>
-</div>
+    <div id="playerNameBox">
+        <input id="playerName" placeholder="Nhập tên chiến binh">
+        <button onclick="startGame()">Bắt đầu</button>
+    </div>
 
 
-<div>
-<h1>⚔️</h1>
-</div>
+    <div id="battle" class="hidden">
+
+        <div class="characters">
+
+            <div class="hero">
+                <h3 id="nameDisplay"></h3>
+
+                <img src="https://cdn-icons-png.flaticon.com/512/168/168726.png">
+
+                <div class="bar">
+                    <div id="heroHP"></div>
+                </div>
+
+                <p>❤️ Hoàng tử</p>
+            </div>
 
 
-<div class="character">
-<h2 id="bossName">👹 Boss</h2>
+            <div class="boss">
 
-<div class="bar">
-<div id="bossHP"></div>
-</div>
+                <h3 id="bossName">
+                    Boss Typography
+                </h3>
 
-</div>
+                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
 
-</div>
+                <div class="bar">
+                    <div id="bossHP"></div>
+                </div>
 
+                <p>💀 Quái vật</p>
 
-<h3 id="stage">
-Boss 1 - Kerning Demon
-</h3>
+            </div>
 
-
-<h2 id="question">
-Loading...
-</h2>
+        </div>
 
 
-<div id="answers"></div>
+
+        <div id="questionBox">
+
+            <h2 id="question"></h2>
+
+            <div id="answers"></div>
+
+        </div>
 
 
-<p id="message"></p>
+        <div id="status">
+
+            <p id="round">
+            </p>
+
+            <p id="combo">
+            </p>
+
+        </div>
+
+
+        <div id="effect"></div>
+
+
+    </div>
+
+
+    <div id="result" class="hidden">
+
+        <h1 id="resultText"></h1>
+
+        <button onclick="restartGame()">
+            🔄 Chơi lại
+        </button>
+
+    </div>
 
 
 </div>
